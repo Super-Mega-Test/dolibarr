@@ -1,7 +1,8 @@
 name: Set reviewer for v18
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types:
+      - opened
     branches:
       - "18.0"
 
