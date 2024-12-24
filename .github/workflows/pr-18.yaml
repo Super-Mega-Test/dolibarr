@@ -6,11 +6,12 @@ on:
     branches:
       - "18.0"
 
+permissions:
+  pull-requests: write
+
 jobs:
   pr18:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - uses: hkusu/review-assign-action@v1
         with:
