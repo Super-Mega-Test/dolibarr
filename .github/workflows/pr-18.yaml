@@ -9,12 +9,10 @@ on:
 jobs:
   pr18:
     runs-on: ubuntu-latest
-    permissions: write-all
+    permissions:
+      pull-requests: write
     steps:
-      - name: Assign reviewer and set auto merge
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          url: ${{ github.event.pull_request.html_url }}
-        run: |
-          gh pr edit "$url" --add-reviewer fcharlaix-opendsi
-          gh pr merge "$url" --merge --auto
+      - uses: hkusu/review-assign-action@v1
+        with:
+          assignees: ${{ github.actor }}
+          reviewers: fcharlaix-opendsi
