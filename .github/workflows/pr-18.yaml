@@ -9,8 +9,7 @@ on:
 jobs:
   pr18:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+    permissions: write-all
     steps:
       - name: Assign reviewer and set auto merge
         env:
